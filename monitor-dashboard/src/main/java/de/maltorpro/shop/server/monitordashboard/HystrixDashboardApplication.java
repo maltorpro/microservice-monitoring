@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.monitordashboard;
+package de.maltorpro.shop.server.monitordashboard;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

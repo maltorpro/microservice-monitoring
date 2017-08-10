@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.zipkin;
+package de.maltorpro.shop.server.zipkin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
