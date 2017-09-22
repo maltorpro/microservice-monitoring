@@ -1,0 +1,100 @@
+version: "3"
+services:
+
+  
+  #######################################
+  #####    monitoring1               ####
+  #######################################
+  
+  
+  elasticsearch:
+    image: elasticsearch:5.4.2
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]
+      #resources:
+        #limits:
+          #memory: 256M
+    ports:
+     - 9200:9200
+     - 9300:9300
+    networks:
+      - shopnet
+  
+  kibana:
+    image: kibana:5.4.2
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]
+      resources:
+        limits:
+          memory: 256M
+    ports:
+     - 5601:5601
+    environment:
+     - ELASTICSEARCH_URL=http://elasticsearch:9200
+    depends_on:
+     - elasticsearch
+    networks:
+      - shopnet
+  
+  logstash:
+    image: logstash:5.4.2
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]
+      resources:
+        limits:
+          memory: 256M
+    ports:
+    - 12201:12201
+    - 5000:5000
+    networks:
+      - shopnet
+    command: logstash -e 'input { tcp { port => 5000 codec => "json" } } output { elasticsearch { hosts => ["elasticsearch"] index => "micro-%{service}"} }'
+ 
+  
+     
+  #monitoring
+  zipkin-server:
+    image: maltor/zipkin-server
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]    
+      resources:
+        limits:
+         memory: 256M
+    ports:
+     - "9411:9411" 
+    networks:
+     - shopnet
+
+  turbine-server:
+    image: maltor/turbine-server
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]    
+      resources:
+        limits:
+          memory: 128M
+    ports:
+       - "8989:8989"
+    networks:
+     - shopnet
+
+  monitor-dashboard:
+    image: maltor/monitor-dashboard
+    deploy:
+      placement:
+        constraints: [node.hostname == monitoring1]    
+      resources:
+        limits:
+          memory: 128M
+    ports:
+     - "7979:7979"
+    networks:
+     - shopnet
+      
+      
+networks:
+  shopnet:
