@@ -6,7 +6,6 @@ jar {
 dependencies {
 	
 	compile("org.springframework.cloud:spring-cloud-sleuth-zipkin-stream")
-    compile("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
-    compile("io.zipkin.java:zipkin-autoconfigure-ui")
-	compile project(":util")
+   	compile("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+    	compile("io.zipkin.java:zipkin-autoconfigure-ui")
 }
