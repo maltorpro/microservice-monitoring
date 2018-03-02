@@ -1,3 +1,2 @@
-include		"turbine-server",
- 		"monitor-dashboard",
- 		"zipkin-server"
+include  "turbine-server",
+         "monitor-dashboard"
