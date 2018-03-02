@@ -69,6 +69,3 @@ jobs:
             docker build -t maltor/turbine-server:$TAG .
             docker push maltor/turbine-server:$TAG 
             
-            cd ~/repo/zipkin-server
-            docker build -t maltor/zipkin-server:$TAG .
-            docker push maltor/zipkin-server:$TAG

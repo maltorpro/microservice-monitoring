@@ -51,19 +51,6 @@ services:
   
      
   #monitoring
-  zipkin-server:
-    image: maltor/zipkin-server
-    deploy:
-      placement:
-        constraints: [node.hostname == monitoring1]    
-      resources:
-        limits:
-         memory: 256M
-    ports:
-     - "9411:9411" 
-    networks:
-     - shopnet
-
   turbine-server:
     image: maltor/turbine-server
     deploy:

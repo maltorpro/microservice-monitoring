@@ -3,10 +3,10 @@ package de.maltorpro.shop.server.turbine;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
+import org.springframework.cloud.netflix.turbine.EnableTurbine;
 
 @SpringBootApplication
-@EnableTurbineStream
+@EnableTurbine
 @EnableDiscoveryClient
 public class TurbineApplication {
 
