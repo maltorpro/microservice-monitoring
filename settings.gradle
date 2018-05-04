@@ -1,2 +1,3 @@
 include  "turbine-server",
-         "monitor-dashboard"
+         "monitor-dashboard",
+         "monitoring-utils"
