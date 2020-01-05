@@ -1,11 +1,10 @@
 jar {
-    baseName = "turbin"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "archiveBaseName"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 dependencies {
-	
-	 compile('org.springframework.cloud:spring-cloud-starter-netflix-turbine');
-	 
-	 compile project(":monitoring-utils")
+
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-turbine');
+    implementation project(":monitoring-utils")
 }
