@@ -69,4 +69,3 @@ jobs:
             cd ~/repo/turbine-server
             docker build -t maltor/turbine-server:$TAG .
             docker push maltor/turbine-server:$TAG 
-            
