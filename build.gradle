@@ -1,6 +1,6 @@
 buildscript {
 	    ext {
-	        springBootVersion = "2.2.2.RELEASE"
+	        springBootVersion = "2.2.5.RELEASE"
 	    }
 	    repositories {
 	        mavenCentral()
@@ -30,7 +30,7 @@ subprojects {
 	}
 	
 	ext {
-		springCloudVersion = 'Hoxton.SR1'
+		springCloudVersion = 'Hoxton.SR3'
 	}
 	
 	dependencies {
